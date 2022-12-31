@@ -2,7 +2,7 @@ import Link from "./Link"
 
 function Topic({children}){
     return (
-    <div className = "topic" >
+    <div>
         <Link to = {children}> 
             Go to {children} 
         </Link>

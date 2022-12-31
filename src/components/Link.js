@@ -13,7 +13,7 @@ function Link({to, children}) {
     };
 
     return (
-        <a onClick = {handleClick} href = {to} style = {{ color: "#0000AA"}}> 
+        <a onClick = {handleClick} href = {to} className="text-blue-600/100"> 
             {children} 
         </a>
     )

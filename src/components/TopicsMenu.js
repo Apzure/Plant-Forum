@@ -3,16 +3,21 @@ import Topic from "./Topic"
 function TopicsMenu({topics}){
     const renderedtopics = topics.map(topic => {
         return (
-        <div key = {topic.id} >
-            <Topic > 
-                {topic.name} 
-            </Topic>
-        </div>
+            <div className="my-[100px]">
+                <Topic key = {topic.id}> 
+                    {topic.name} 
+                </Topic>
+            </div>
         );
     });
   
-    return renderedtopics;
-}
+    return ( 
+            <div className="flex flex-col place-content-around">
+                { renderedtopics }
+            </div>
+        
+    )
+}   
 
 
 export default TopicsMenu;
