@@ -1,16 +1,18 @@
-import Link from "./Link"
+import Topic from "./Topic"
 
 function TopicsMenu({topics}){
     const renderedtopics = topics.map(topic => {
         return (
         <div key = {topic.id} >
-            <Link> {topic.name} </Link>
+            <Topic > 
+                {topic.name} 
+            </Topic>
         </div>
-        )
-    })
+        );
+    });
   
-    return renderedtopics
+    return renderedtopics;
 }
 
 
-export default TopicsMenu
+export default TopicsMenu;

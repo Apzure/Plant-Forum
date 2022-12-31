@@ -28,5 +28,5 @@ function NavigationProvider({ children }){
     )
 }
 
-export {NavigationContext}
-export default NavigationProvider
+export { NavigationContext };
+export default NavigationProvider;
