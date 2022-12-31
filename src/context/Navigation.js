@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const NavigationContext = createContext();
 
@@ -7,7 +7,7 @@ function NavigationProvider({ children }){
 
     useEffect(() => {
         const handlePopstate = () => {
-          setCurrentPath(window.location.pathname);
+          setPath(window.location.pathname);
         };
         window.addEventListener('popstate', handlePopstate);
     
@@ -15,7 +15,7 @@ function NavigationProvider({ children }){
           window.removeEventListener('popstate', handlePopstate);
         };
       }, []);
-      
+
     function navigate(to) {
         window.history.pushState({}, '', to);
         setPath(to);

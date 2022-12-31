@@ -13,7 +13,11 @@ function Link({to, children}) {
         navigate(to)
     };
 
-    return <a onClick = {handleClick} href = {to}> {children} </a>
+    return (
+        <a onClick = {handleClick} href = {to} style = {{ color: "#0000AA"}}> 
+            {children} 
+        </a>
+    )
 }
 
 export default Link
