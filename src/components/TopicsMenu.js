@@ -1,7 +1,9 @@
+import ListOfPostsPage from "../pages/ListOfPostsPage";
+import Route from "./Route";
 import Topic from "./Topic"
 
 function TopicsMenu({topics}){
-    const renderedtopics = topics.map(topic => {
+    const TopicsMainMenu = topics.map(topic => {
         return (
             <div className="my-[100px] border-grey border-2" key = {topic.id}>
                 <Topic> 
@@ -10,13 +12,27 @@ function TopicsMenu({topics}){
             </div>
         );
     });
+
+    const IndividualTopics = topics.map(topic => {
+        return (
+            <Route path = {topic.name} key={topic.id}>
+                <ListOfPostsPage name = {topic.name}>
+
+                </ListOfPostsPage>
+            </Route>
+        )
+    });
   
     return ( 
-            <div className="flex flex-col place-content-around">
-                { renderedtopics }
-            </div>
-        
-    )
+        <div>
+            <Route path = '/'>
+                <div className="flex flex-col place-content-around">
+                    { TopicsMainMenu }
+                </div>
+            </Route>
+            {IndividualTopics}
+        </div> 
+    );
 }   
 
 
