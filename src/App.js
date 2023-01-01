@@ -1,4 +1,5 @@
 import TopicsMenu from './components/TopicsMenu';
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const topics = [{name: 'Gardening', id: 1}, {name: 'Decoration', id: 2}, {name: 'Suggestoins', id:3}]
@@ -12,8 +13,11 @@ function App() {
         <div className='bg-green-400 '>
           Navbar
         </div>
+        <Routes>
+          <Route path = '/' element = {<TopicsMenu topics={topics} />} />
+          
+        </Routes>
         
-        <TopicsMenu topics = {topics} />
       </div>
     </div>
   );

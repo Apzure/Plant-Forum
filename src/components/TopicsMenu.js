@@ -1,5 +1,5 @@
 import ListOfPostsPage from "../pages/ListOfPostsPage";
-import Route from "./Route";
+import { Route, Routes } from "react-router-dom";
 import Topic from "./Topic"
 
 function TopicsMenu({topics}){
@@ -24,14 +24,12 @@ function TopicsMenu({topics}){
     });
   
     return ( 
-        <div>
-            <Route path = '/'>
                 <div className="flex flex-col place-content-around">
                     { TopicsMainMenu }
                 </div>
-            </Route>
-            {IndividualTopics}
-        </div> 
+         
+           
+   
     );
 }   
 

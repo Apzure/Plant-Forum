@@ -9,7 +9,7 @@ function Link({to, children}) {
           }
 
         event.preventDefault();
-        navigate(to)
+        navigate(to);
     };
 
     return (
@@ -19,4 +19,4 @@ function Link({to, children}) {
     )
 }
 
-export default Link
+export default Link;
