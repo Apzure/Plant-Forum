@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Category({categoryName, topics}){
     const ListOfTopics = topics.map(topic => { // Creating a div for each Topic
         return (
-            <div key = {topic}>
+            <div className = 'text-green-700 ml-10' key = {topic}>
                 <Link to = {categoryName + '/' + topic}>
                     {topic}
                 </Link>
@@ -15,8 +15,8 @@ function Category({categoryName, topics}){
 
     return (
         <div>
-            <div>
-                <Link to = {categoryName} className = 'text-cyan-900'> 
+            <div className = 'bg-green-400 font-bold text-2xl pl-10 pb-5 pt-1'>
+                <Link to = {categoryName} > 
                     Go to {categoryName} 
                 </Link>
             </div>

@@ -15,20 +15,22 @@ function App() {
     const {name, topics} = cat
 
     const RoutesForTopics = topics.map(topic => { // To create Routes for all Topics for each Category
-      return <Route path = {name + '/' + topic} element = {<PostsListPage topic={topic} />} key={topic} />
+      return <Route path = {topic} element = {<PostsListPage topic={topic} />} key={topic} />
     });
    
     return ( // Fragment is used, instead of <>, to provide a key
       <Fragment key = {name}> 
         <Route path = {name} element = {<ListofTopicsPage name = {name} topics={topics} />} />
-        {RoutesForTopics}
+        <Route path={name}>
+          {RoutesForTopics}
+        </Route>
       </Fragment> 
     ); 
   });
   
   return (
     <div className="bg-green-100 h-screen ">
-      <div className="mx-[30rem] sticky min-w-fit bg-white h-screen overflow-hidden"> 
+      <div className="mx-auto w-[1000px] sticky min-w-fit bg-white h-full "> 
         <h1 className='text-3xl mt-2 mb-10 text-center'> 
           Welcome To Plantopia 
         </h1>
