@@ -5,15 +5,14 @@ import {IoMdArrowDropdownCircle, IoMdArrowDroprightCircle } from  "react-icons/i
 
 function Category({title, topics}) {   
     const CategoryTitle = 
-                        <Link to = {title} className='font-bold text-2xl hover:underline'> 
+                        <Link to={title} className='font-bold text-2xl hover:underline'> 
                             {title} 
                         </Link>
                     
 
     const ListOfTopics = topics.map(topic => { // Creating a <Topic/> for each topic
         return (
-            <Topic topic={topic} to={title + '/' + topic.name} key={topic.name} />   
-                     
+            <Topic to={title + '/' + topic.name} topic={topic} key={topic.name} />            
         )
     });
 

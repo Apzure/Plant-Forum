@@ -2,8 +2,9 @@ import CategoriesMenu from './components/CategoriesMenu';
 import { Route, Routes } from "react-router-dom";
 import TopicsMenuPage from './pages/TopicsMenuPage';
 import PostsListPage from './pages/PostsListPage';
-import { Fragment } from 'react';
+import Navbar from './components/Navbar';
 import Categories from './CategoriesData';
+import { Fragment } from 'react';
 
 function App() {
   const RoutesForCategoriesAndTopics = Categories.map(cat => { 
@@ -30,9 +31,9 @@ function App() {
           Welcome To Plantopia 
         </h1>
         
-        <div className='bg-green-400 text-center'>
-          Navbar
-        </div>
+       
+        <Navbar/>
+      
 
         <Routes>
           <Route path = '/' element = {<CategoriesMenu categories={Categories} />} />
