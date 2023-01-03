@@ -26,7 +26,7 @@ function PostList({posts}){
     });
   
     return (
-        <div className="h-[1000px]">
+        <div>
             {renderedPosts}
         </div>
     );
