@@ -24,8 +24,8 @@ function App() {
   });
   
   return (
-    <div className="bg-green-100 h-full ">
-      <div className="mx-auto w-[1000px] sticky min-w-fit bg-white h-full "> 
+    <div className="bg-green-100 h-full absolute w-full">
+      <div className="mx-auto w-[1000px] sticky bg-white h-max pb-[50px]"> 
         <h1 className='text-3xl pt-2 mb-10 text-center'> 
           Welcome To Plantopia 
         </h1>
