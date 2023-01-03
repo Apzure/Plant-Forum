@@ -1,27 +1,22 @@
 import CategoriesMenu from './components/CategoriesMenu';
 import { Route, Routes } from "react-router-dom";
-import ListofTopicsPage from './pages/ListOfTopicsPage';
+import TopicsMenuPage from './pages/TopicsMenuPage';
 import PostsListPage from './pages/PostsListPage';
 import { Fragment } from 'react';
+import Categories from './CategoriesData';
 
 function App() {
-  const Categories = [  // Array of Categories, name is the Name of the Cat, topics is the Topics classified under the Cat
-    {name: 'Garderning', topics: ['Fruits', 'Vegetables', 'Indoor Plants']}, 
-    {name: 'Decoration', topics: ['Landscaping', 'Household Decoration', 'Flowers']}, 
-    {name: 'Meta', topics:['Announcements', 'Suggestions and Feedback']}
-  ];
+  const RoutesForCategoriesAndTopics = Categories.map(cat => { 
+    const {title, topics} = cat
 
-  const RoutesForCategories = Categories.map(cat => { // To create a Route for each Category
-    const {name, topics} = cat
-
-    const RoutesForTopics = topics.map(topic => { // To create Routes for all Topics for each Category
-      return <Route path = {topic} element = {<PostsListPage topic={topic} />} key={topic} />
+    const RoutesForTopics = topics.map(topic => { // To create Routes for all Topics within each Category
+      return <Route path = {topic.name} element = {<PostsListPage topic={topic} />} key={topic.name} />
     });
    
-    return ( // Fragment is used, instead of <>, to provide a key
-      <Fragment key = {name}> 
-        <Route path = {name} element = {<ListofTopicsPage name = {name} topics={topics} />} />
-        <Route path={name}>
+    return ( // The first <Route/> is for a Category, the next is for the Topics within that Cat
+      <Fragment key = {title}> 
+        <Route path = {title} element = {<TopicsMenuPage title = {title} topics={topics} />} /> 
+        <Route path={title}>
           {RoutesForTopics}
         </Route>
       </Fragment> 
@@ -29,9 +24,9 @@ function App() {
   });
   
   return (
-    <div className="bg-green-100 h-screen ">
+    <div className="bg-green-100 h-full ">
       <div className="mx-auto w-[1000px] sticky min-w-fit bg-white h-full "> 
-        <h1 className='text-3xl mt-2 mb-10 text-center'> 
+        <h1 className='text-3xl pt-2 mb-10 text-center'> 
           Welcome To Plantopia 
         </h1>
         
@@ -41,7 +36,7 @@ function App() {
 
         <Routes>
           <Route path = '/' element = {<CategoriesMenu categories={Categories} />} />
-          {RoutesForCategories}
+          {RoutesForCategoriesAndTopics}
         </Routes>
       </div>
     </div>

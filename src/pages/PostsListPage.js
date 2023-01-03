@@ -1,8 +1,13 @@
 function PostsListPage({topic}) {
     return (
-        <div>
-            This is {topic} page
-        </div>
+        <>
+            <div>
+                {topic.name} page
+            </div>
+            <div>
+                Desc: {topic.desc}
+            </div>
+        </>
     );
 }
 
