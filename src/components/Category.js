@@ -22,7 +22,7 @@ function Category({title, topics}) {
     
 
     return (
-        <div>
+        <div className="mb-[8px]">
             <div className="flex place-content-between bg-green-400 p-3">
                 <div>
                     {CategoryTitle}

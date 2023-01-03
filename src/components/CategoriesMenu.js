@@ -2,15 +2,11 @@ import Category from "./Category"
 
 function CategoriesMenu({categories}){
     const CatMenu = categories.map(cat => { //Creating a div for each Category 
-        return (
-            <div className="my-[2px]" key = {cat.title}>
-                <Category title={cat.title} topics = {cat.topics} /> 
-            </div>
-        );
+        return <Category title={cat.title} topics = {cat.topics} key = {cat.title}/>;
     });
   
     return ( 
-        <div className="flex flex-col place-content-around mt-[100px]">
+        <div className="flex flex-col place-content-around">
             { CatMenu }
         </div>
     );

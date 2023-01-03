@@ -1,7 +1,7 @@
 import CategoriesMenu from './components/CategoriesMenu';
 import { Route, Routes } from "react-router-dom";
 import TopicsMenuPage from './pages/TopicsMenuPage';
-import PostsListPage from './pages/PostsListPage';
+import PostsMenuPage from './pages/PostsMenuPage';
 import Navbar from './components/Navbar';
 import Categories from './CategoriesData';
 import { Fragment } from 'react';
@@ -10,14 +10,14 @@ function App() {
   const RoutesForCategoriesAndTopics = Categories.map(cat => { 
     const {title, topics} = cat
 
-    const RoutesForTopics = topics.map(topic => { // To create Routes for all Topics within each Category
-      return <Route path = {topic.name} element = {<PostsListPage topic={topic} />} key={topic.name} />
+    const RoutesForTopics = topics.map(topic => { 
+      return <Route path = {topic.name} element = {<PostsMenuPage topic={topic} />} key={topic.name} />
     });
    
-    return ( // The first <Route/> is for a Category, the next is for the Topics within that Cat
+    return (
       <Fragment key = {title}> 
-        <Route path = {title} element = {<TopicsMenuPage title = {title} topics={topics} />} /> 
-        <Route path={title}>
+        <Route path = {title} element = {<TopicsMenuPage title = {title} topics={topics} />} /> {/* Route for Category*/}
+        <Route path={title}>  {/* Routes for Topics within that Category*/}
           {RoutesForTopics}
         </Route>
       </Fragment> 
@@ -25,15 +25,13 @@ function App() {
   });
   
   return (
-    <div className="bg-green-100 h-full absolute w-full">
-      <div className="mx-auto w-[1000px] sticky bg-white h-max pb-[50px]"> 
+    <div className="bg-green-100 h-full absolute w-full overflow-auto">
+      <div className="mx-auto w-[1000px] sticky bg-white h-max pb-[70px]"> 
         <h1 className='text-3xl pt-2 mb-10 text-center'> 
           Welcome To Plantopia 
         </h1>
         
-       
         <Navbar/>
-      
 
         <Routes>
           <Route path = '/' element = {<CategoriesMenu categories={Categories} />} />
