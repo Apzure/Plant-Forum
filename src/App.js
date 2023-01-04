@@ -5,6 +5,7 @@ import PostsMenuPage from './pages/PostsMenuPage';
 import Navbar from './components/Navbar';
 import Categories from './CategoriesData';
 import { Fragment } from 'react';
+import FullPost from './components/FullPost';
 
 function App() {
   const RoutesForCategoriesAndTopics = Categories.map(cat => { 
@@ -25,7 +26,7 @@ function App() {
   });
   
   return (
-    <div className="bg-green-100 h-full absolute w-full overflow-auto">
+    <div className="bg-teal-100 h-full absolute w-full overflow-auto">
       <div className="mx-auto w-[1000px] sticky bg-white h-max pb-[70px]"> 
         <h1 className='text-3xl pt-2 mb-10 text-center'> 
           Welcome To Plantopia 
@@ -36,6 +37,9 @@ function App() {
         <Routes>
           <Route path = '/' element = {<CategoriesMenu categories={Categories} />} />
           {RoutesForCategoriesAndTopics}
+          <Route path='Post'>
+            <Route path=':id' element=<FullPost/> />
+          </Route>
         </Routes>
       </div>
     </div>

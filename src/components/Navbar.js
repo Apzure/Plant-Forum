@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import {BiSearchAlt} from "react-icons/bi";
 
 function Navbar() {
-    const LinkCss = "px-3 py-2.5 text-center hover:bg-green-600" // Not sure why it is py-2.5 for it be the same as py-2 below
+    const LinkCss = "px-3 py-2.5 text-center hover:bg-green-700 hover:underline" // Not sure why it is py-2.5 for it be the same as py-2 below
     return (
         <div className="flex place-content-between bg-green-600 py-2 mb-[60px]">
             <div>
