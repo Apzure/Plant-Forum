@@ -1,5 +1,3 @@
-Plant Forum 
-
 Welcome to the Plant Forum Frontend, a React-based web application for plant enthusiasts to connect, share, and learn about their favorite green companions.
 ### `npm start`
 
